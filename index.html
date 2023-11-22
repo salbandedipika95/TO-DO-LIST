@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+    
+</head>
+<body>
+
+<div id="todoList">
+      <header>
+        <h1>TO DO LIST</h1>
+        <h3>Welcome User!</h3>
+    </header>
+    <div class="container">  
+      <div class="tsk">
+            <input type="text" id="taskInput" placeholder="Add a new task">
+            <button onclick="addTask()">Add Task</button>
+      </div>
+    </div>
+    <ul id="tasksList"></ul>
+</div>
+
+<script>
+  // Function to add a new task to the list
+  function addTask() {
+    var taskInput = document.getElementById("taskInput");
+    var taskText = taskInput.value.trim();
+
+    if (taskText !== "") {
+      var tasksList = document.getElementById("tasksList");
+
+      // Create a new list item
+      var listItem = document.createElement("li");
+      listItem.innerHTML = taskText + '<i style="display: flex;justify-content: flex-end;"onclick="removeTask(this)"class="material-icons">&#xe92b;</i>';
+
+      // Add the new list item to the list
+      tasksList.appendChild(listItem);
+
+      taskInput.value=null;
+    }
+  }
+
+  // Function to remove a task from the list
+  function removeTask(button) {
+    alert(" Are You want to delete");
+    var listItem = button.parentNode;
+    var tasksList = listItem.parentNode;
+
+    // Remove the list item from the list
+    tasksList.removeChild(listItem);
+  }
+</script>
+
+</body>
+</html>
